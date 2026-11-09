@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Franco Frías — liderazgo de proyectos, experiencia de cliente y transformación de negocio.">
+<title>Franco Frías | Estrategia, ejecución y transformación</title>
+<style>
+  :root{--bg:#f5f4f0;--ink:#17211f;--muted:#5d6965;--line:#d9ddd7;--accent:#c6f277;--panel:#fffefa;--dark:#182522}
+  *{box-sizing:border-box} html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+  a{color:inherit} .wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+  .hl{color:#648b34}
+  .sw{position:absolute;opacity:0;width:1px;height:1px;overflow:hidden;pointer-events:none}
+  header{padding:25px 0;border-bottom:1px solid var(--line)}
+  nav{display:flex;justify-content:space-between;align-items:center;gap:20px}
+  .brand{font-weight:800;letter-spacing:-.04em;font-size:1.1rem}.brand span{color:#5a7e2c}
+  .navr{display:flex;align-items:center;gap:22px}
+  .navlinks{display:flex;gap:24px;font-size:.9rem;color:var(--muted)}.navlinks a{text-decoration:none}
+  .lang{display:inline-flex;border:1px solid var(--ink);border-radius:999px;overflow:hidden;font-size:.8rem;font-weight:700}
+  .lang label{padding:7px 12px;cursor:pointer;user-select:none;-webkit-user-select:none}
+  #l-es:checked ~ header .lang label[for="l-es"],#l-en:checked ~ header .lang label[for="l-en"]{background:var(--ink);color:#fff}
+  #l-es:focus-visible ~ header .lang label[for="l-es"],#l-en:focus-visible ~ header .lang label[for="l-en"]{outline:2px solid #3f5924;outline-offset:2px}
+  .btn:focus-visible,.navlinks a:focus-visible,.copy:focus-visible{outline:2px solid #3f5924;outline-offset:2px}
+  .hero{padding:90px 0 76px;display:grid;grid-template-columns:1.4fr .6fr;gap:55px;align-items:end}
+  .eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:.75rem;font-weight:800;color:#597632}
+  h1{font-size:clamp(3rem,7vw,6.2rem);line-height:.98;letter-spacing:-.075em;margin:20px 0 26px;max-width:850px}
+  .lead{font-size:clamp(1.1rem,2vw,1.35rem);max-width:690px;color:#42504b}
+  .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+  .btn{display:inline-block;padding:13px 18px;border:1px solid var(--ink);border-radius:999px;text-decoration:none;font-weight:700;font-size:.92rem}
+  .btn.primary{background:var(--ink);color:white}.btn.secondary{background:transparent}
+  .side-note{border-left:3px solid #a3ca60;padding:5px 0 5px 22px;color:var(--muted);font-size:.96rem}
+  .side-note strong{display:block;color:var(--ink);font-size:1.08rem;margin-bottom:8px}
+  .strip{background:var(--dark);color:#f5f4f0;padding:22px 0}
+  .strip-inner{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:.87rem;color:#d6dfd8}
+  section{padding:76px 0;border-bottom:1px solid var(--line)}
+  .section-head{display:grid;grid-template-columns:.6fr 1.4fr;gap:35px;margin-bottom:35px}
+  h2{font-size:clamp(2rem,4vw,3.5rem);letter-spacing:-.06em;line-height:1.05;margin:0}
+  .section-intro{color:var(--muted);max-width:650px;margin:0;font-size:1.05rem}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:25px;min-height:220px}
+  .num{font-size:.78rem;color:#69853e;font-weight:800;letter-spacing:.12em}
+  h3{font-size:1.25rem;letter-spacing:-.035em;margin:22px 0 10px}
+  .card p{color:var(--muted);font-size:.95rem;margin:0}
+  .approach{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--panel)}
+  .step{padding:22px;border-right:1px solid var(--line)}.step:last-child{border:0}
+  .step b{display:block;margin-bottom:9px}.step p{font-size:.9rem;color:var(--muted);margin:0}
+  .profile{display:grid;grid-template-columns:.7fr 1.3fr;gap:55px;align-items:start}
+  .profile-tag{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:#597632;font-weight:800}
+  .profile p{margin-top:0;color:#46534e;font-size:1.04rem}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}.chip{border:1px solid var(--line);border-radius:999px;padding:8px 12px;font-size:.82rem;color:#46534e}
+  .cta{background:var(--accent);border-radius:22px;padding:clamp(28px,5vw,60px);display:grid;grid-template-columns:1.3fr .7fr;gap:30px;align-items:center}
+  .cta h2{max-width:650px}.cta p{max-width:570px;color:#39452f}
+  .cta-btns{display:flex;gap:10px;flex-wrap:wrap}
+  .mail-line{font-size:.88rem;margin:16px 0 0;color:#39452f}
+  .mail-line a{font-weight:700}
+  .copy{font:inherit;font-size:.88rem;font-weight:700;color:inherit;background:transparent;border:0;padding:0;text-decoration:underline;cursor:pointer}
+  .sep{margin:0 6px;opacity:.6}
+  footer{padding:28px 0 40px;color:var(--muted);font-size:.83rem;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+  .en,a.btn.en{display:none}
+  #l-en:checked ~ * .es{display:none!important}
+  #l-en:checked ~ * .en{display:inline!important}
+  #l-en:checked ~ * a.btn.en{display:inline-block!important}
+  @media(max-width:760px){.hero,.section-head,.profile,.cta{grid-template-columns:1fr}.hero{padding:60px 0 50px;gap:30px}.cards{grid-template-columns:1fr}.card{min-height:0}.approach{grid-template-columns:1fr}.step{border-right:0;border-bottom:1px solid var(--line)}.navr{gap:12px}.navlinks{gap:12px;font-size:.8rem}.navlinks a:nth-child(1),.navlinks a:nth-child(2){display:none}section{padding:55px 0}}
+
+  .impact-filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:22px}
+  .impact-filter{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:9px 15px;font:inherit;font-size:.84rem;font-weight:700;color:#46534e;cursor:pointer}
+  .impact-filter.active{background:var(--ink);border-color:var(--ink);color:#fff}
+  .impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .impact-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .18s ease,box-shadow .18s ease}
+  .impact-card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(23,33,31,.08)}
+  .impact-card.hidden{display:none}
+  .impact-media{position:relative;aspect-ratio:16/9;overflow:hidden;background:#e7eae4}
+  .impact-media img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9)}
+  .impact-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,33,31,0) 40%,rgba(23,33,31,.62))}
+  .impact-label{position:absolute;left:16px;bottom:13px;z-index:2;color:#fff;font-size:.74rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+  .impact-body{padding:20px;display:flex;flex-direction:column;flex:1}
+  .impact-body h3{margin:0 0 8px;font-size:1.12rem}
+  .impact-summary{color:var(--muted);font-size:.94rem;margin:0}
+  .impact-toggle{margin-top:14px;align-self:flex-start;background:transparent;border:0;padding:0;font:inherit;font-size:.86rem;font-weight:700;color:#5a7e2c;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+  .impact-detail{max-height:0;overflow:hidden;transition:max-height .28s ease,opacity .2s ease;opacity:0}
+  .impact-card.open .impact-detail{max-height:900px;opacity:1;margin-top:14px}
+  .impact-detail-inner{border-top:1px solid var(--line);padding-top:14px}
+  .impact-detail ul{margin:0 0 12px;padding-left:18px;color:var(--muted);font-size:.9rem}
+  .impact-detail li{margin:5px 0}
+  .impact-value{font-size:.88rem;color:#46534e;border-top:1px solid var(--line);padding-top:12px}
+  .impact-value b{color:#5a7e2c}
+  .impact-link{display:inline-block;margin-top:10px;font-size:.86rem;font-weight:700;color:#5a7e2c;text-decoration:underline;text-underline-offset:3px}
+  @media(max-width:760px){.impact-grid{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+<input class="sw" type="radio" name="lang" id="l-es" aria-label="Español">
+<input class="sw" type="radio" name="lang" id="l-en" checked aria-label="English">
+<header><div class="wrap"><nav>
+  <div class="brand">FRANCO FRÍAS<span>.</span></div>
+  <div class="navr">
+    <div class="navlinks">
+      <a href="#enfoque"><span class="es">Enfoque</span><span class="en">Approach</span></a>
+      <a href="#experiencia"><span class="es">Experiencia</span><span class="en">Experience</span></a>
+      <a href="#impacto"><span class="es">Impacto</span><span class="en">Impact</span></a>
+      <a href="https://www.linkedin.com/in/franco-frias-process-project-manager-engineer-ingeniero-industrial" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#contacto"><span class="es">Contacto</span><span class="en">Contact</span></a>
+    </div>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <label for="l-es">ES</label><label for="l-en">EN</label>
+    </div>
+  </div>
+</nav></div></header>
+<main>
+  <div class="wrap">
+    <section class="hero" style="border:0">
+      <div>
+        <div class="eyebrow"><span class="es">Estrategia · Ejecución · Transformación</span><span class="en">Strategy · Execution · Transformation</span></div>
+        <h1><span class="es">Hacer que las cosas complejas <span class="hl">avancen.</span></span><span class="en">Making complex things <span class="hl">move forward.</span></span></h1>
+        <p class="lead"><span class="es">Ayudo a conectar personas, procesos y tecnología para convertir retos de negocio en proyectos claros, equipos alineados y resultados ejecutables.</span><span class="en">I connect people, processes and technology to turn business challenges into clear projects, aligned teams and executable results.</span></p>
+        <div class="actions">
+          <a class="btn primary" href="#contacto"><span class="es">Hablemos de tu reto ↗</span><span class="en">Let's talk about your challenge ↗</span></a>
+          <a class="btn secondary" href="#enfoque"><span class="es">Cómo puedo aportar</span><span class="en">How I can help</span></a>
+        </div>
+      </div>
+      <aside class="side-note">
+        <strong><span class="es">Una mirada transversal.</span><span class="en">A cross-functional view.</span></strong>
+        <span><span class="es">Experiencia liderando proyectos, equipos y relaciones con clientes en entornos tecnológicos y regulados. De la ambigüedad inicial a una ejecución compartida.</span><span class="en">Experience leading projects, teams and client relationships in technology and regulated environments. From initial ambiguity to shared execution.</span></span>
+      </aside>
+    </section>
+  </div>
+  <div class="strip"><div class="wrap strip-inner">
+    <span>Head of Onboarding &amp; Project Delivery — Customer Experience</span><span>PMP®</span><span><span class="es">Europa · LATAM · Global</span><span class="en">Europe · LATAM · Global</span></span><span><span class="es">Transformación de negocio</span><span class="en">Business transformation</span></span>
+  </div></div>
+  <div class="wrap">
+    <section id="enfoque">
+      <div class="section-head">
+        <div class="eyebrow"><span class="es">Dónde aporto valor</span><span class="en">Where I add value</span></div>
+        <div><h2><span class="es">No todo problema necesita otra herramienta.</span><span class="en">Not every problem needs another tool.</span></h2><p class="section-intro" style="margin-top:18px"><span class="es">A menudo, el bloqueo real está en cómo se entiende el problema, cómo se coordinan las áreas y cómo se convierte una decisión en trabajo concreto.</span><span class="en">Often, the real blocker is how the problem is understood, how areas coordinate, and how a decision becomes concrete work.</span></p></div>
+      </div>
+      <div class="cards">
+        <article class="card"><div class="num"><span class="es">01 / CLARIDAD</span><span class="en">01 / CLARITY</span></div><h3><span class="es">Dar forma al problema</span><span class="en">Shaping the problem</span></h3><p><span class="es">Identificar qué está fallando, separar síntomas de causas y traducir necesidades difusas en objetivos, decisiones y próximos pasos compartidos.</span><span class="en">Identify what is failing, separate symptoms from causes, and turn vague needs into shared objectives, decisions and next steps.</span></p></article>
+        <article class="card"><div class="num"><span class="es">02 / CONEXIÓN</span><span class="en">02 / CONNECTION</span></div><h3><span class="es">Alinear negocio y equipos</span><span class="en">Aligning business and teams</span></h3><p><span class="es">Conectar perfiles con lenguajes y prioridades distintas para reducir malentendidos, fricción entre áreas y pérdida de información en los traspasos.</span><span class="en">Connect profiles with different languages and priorities to reduce misunderstandings, friction between areas and information loss in handoffs.</span></p></article>
+        <article class="card"><div class="num"><span class="es">03 / EJECUCIÓN</span><span class="en">03 / EXECUTION</span></div><h3><span class="es">Convertir planes en resultados</span><span class="en">Turning plans into results</span></h3><p><span class="es">Diseñar una forma de trabajo práctica, ordenar responsabilidades y dar seguimiento a lo importante sin añadir burocracia innecesaria.</span><span class="en">Design a practical way of working, clarify responsibilities and follow up on what matters without adding unnecessary bureaucracy.</span></p></article>
+      </div>
+    </section>
+    <section id="impacto">
+      <div class="section-head">
+        <div class="eyebrow"><span class="es">Dónde puedo aportar</span><span class="en">Where I can help</span></div>
+        <div>
+          <h2><span class="es">Impacto donde más importa.</span><span class="en">Impact where it matters most.</span></h2>
+          <p class="section-intro" style="margin-top:18px"><span class="es">Ayudo a organizaciones a convertir complejidad regulatoria, operativa y tecnológica en decisiones claras y resultados sostenibles.</span><span class="en">I help organisations turn regulatory, operational and technological complexity into clear decisions and sustainable results.</span></p>
+        </div>
+      </div>
+      <div class="impact-filters" role="tablist" aria-label="Filter impact areas">
+        <button class="impact-filter active" data-filter="all"><span class="es">Todas</span><span class="en">All</span></button>
+        <button class="impact-filter" data-filter="grc"><span class="es">GRC</span><span class="en">GRC</span></button>
+        <button class="impact-filter" data-filter="healthtech"><span class="es">Health Tech</span><span class="en">Health Tech</span></button>
+        <button class="impact-filter" data-filter="legaltech"><span class="es">Legal Tech</span><span class="en">Legal Tech</span></button>
+        <button class="impact-filter" data-filter="publico"><span class="es">Sector público</span><span class="en">Public sector</span></button>
+        <button class="impact-filter" data-filter="operaciones"><span class="es">Operaciones y servicios</span><span class="en">Operations &amp; services</span></button>
+        <button class="impact-filter" data-filter="learning"><span class="es">Learning &amp; AI</span><span class="en">Learning &amp; AI</span></button>
+      </div>
+      <div class="impact-grid">
+        <article class="impact-card" data-cat="grc">
+          <div class="impact-media"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=900&q=70" alt="GRC and corporate governance"><span class="impact-label"><span class="es">GRC</span><span class="en">GRC</span></span></div>
+          <div class="impact-body">
+            <h3><span class="es">GRC: escala, gobernanza y adopción</span><span class="en">GRC: scale, governance and adoption</span></h3>
+            <p class="impact-summary"><span class="es">Convierto marcos regulatorios en una capacidad de gobierno escalable, con una visión única de riesgo, cumplimiento y resiliencia.</span><span class="en">I turn regulatory frameworks into a scalable governance capability, with a single view of risk, compliance and resilience.</span></p>
+            <button class="impact-toggle" aria-expanded="false"><span class="es">Ver cómo lo hago</span><span class="en">See how</span></button>
+            <div class="impact-detail"><div class="impact-detail-inner">
+              <ul>
+                <li><span class="es">Lidero la implementación y adopción de GlobalSuite® en un entorno global que da servicio a más de 2.000 clientes internacionales y ejecuta más de 150 proyectos al año.</span><span class="en">I lead the implementation and adoption of GlobalSuite® in a global environment serving more than 2,000 international clients and delivering more than 150 projects per year.</span></li>
+                <li><span class="es">Traduzco ISO 27001, ISO 31000, ISO 22301, RGPD, DORA, NIS2 y EU AI Act en modelos operativos, hojas de ruta y criterios de priorización.</span><span class="en">I translate ISO 27001, ISO 31000, ISO 22301, GDPR, DORA, NIS2 and the EU AI Act into operating models, roadmaps and prioritisation criteria.</span></li>
+                <li><span class="es">Alineo equipos, partners y stakeholders para reducir silos, reutilizar controles y evidencias, y habilitar decisiones basadas en riesgo.</span><span class="en">I align teams, partners and stakeholders to reduce silos, reuse controls and evidence, and enable risk-based decision-making.</span></li>
+              </ul>
+              <div class="impact-value"><b><span class="es">Valor:</span><span class="en">Value:</span></b> <span class="es">menos cumplimiento reactivo; más control continuo, trazabilidad auditorable y resiliencia.</span><span class="en">Less reactive compliance; more continuous control, auditable traceability and resilience.</span></div>
+            </div></div>
+          </div>
+        </article>
+        <article class="impact-card" data-cat="healthtech">
+          <div class="impact-media"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=70" alt="Health Tech and regulatory compliance"><span class="impact-label"><span class="es">Health Tech</span><span class="en">Health Tech</span></span></div>
+          <div class="impact-body">
+            <h3><span class="es">Health Tech: dominio del entorno regulado</span><span class="en">Health Tech: mastery of the regulated environment</span></h3>
+            <p class="impact-summary"><span class="es">Impulso proyectos de salud y dispositivos médicos sin comprometer seguridad, calidad ni conformidad regulatoria.</span><span class="en">I drive health and medical-device projects without compromising safety, quality or regulatory conformity.</span></p>
+            <button class="impact-toggle" aria-expanded="false"><span class="es">Ver cómo lo hago</span><span class="en">See how</span></button>
+            <div class="impact-detail"><div class="impact-detail-inner">
+              <ul>
+                <li><span class="es">Aplico ISO 13485 como sistema de gestión de calidad a lo largo del ciclo de vida del dispositivo: diseño, producción, distribución, instalación y servicio.</span><span class="en">I apply ISO 13485 as a quality management system across the device lifecycle: design, production, distribution, installation and service.</span></li>
+                <li><span class="es">Integro criterios de GMP para una fabricación consistente, segura y trazable.</span><span class="en">I integrate GMP criteria for consistent, safe and traceable manufacturing.</span></li>
+                <li><span class="es">Gestiono trazabilidad, control de cambios, riesgos y coordinación entre I+D, calidad, regulación, operaciones y comercial.</span><span class="en">I manage traceability, change control, risk and coordination across R&amp;D, quality, regulatory, operations and commercial teams.</span></li>
+              </ul>
+              <div class="impact-value"><b><span class="es">Valor:</span><span class="en">Value:</span></b> <span class="es">innovación con seguridad del paciente, calidad y conformidad regulatoria.</span><span class="en">Innovation with patient safety, quality and regulatory conformity.</span></div>
+            </div></div>
+          </div>
+        </article>
+        <article class="impact-card" data-cat="legaltech operaciones learning">
+          <div class="impact-media"><img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=900&q=70" alt="Legal Tech and transformation"><span class="impact-label"><span class="es">Legal Tech</span><span class="en">Legal Tech</span></span></div>
+          <div class="impact-body">
+            <h3><span class="es">Legal Tech: transformación operativa y PMO</span><span class="en">Legal Tech: operational transformation and PMO</span></h3>
+            <p class="impact-summary"><span class="es">Transformo organizaciones de servicios legales en modelos de gestión híbridos, medibles y orientados a cliente.</span><span class="en">I transform legal services organisations into hybrid, measurable and client-oriented management models.</span></p>
+            <button class="impact-toggle" aria-expanded="false"><span class="es">Ver cómo lo hago</span><span class="en">See how</span></button>
+            <div class="impact-detail"><div class="impact-detail-inner">
+              <ul>
+                <li><span class="es">Creé un área de procesos y una PMO híbrida ágil/predictiva para gobernar demanda, proyectos y mejora continua.</span><span class="en">I created a process area and a hybrid Agile/predictive PMO to govern demand, projects and continuous improvement.</span></li>
+                <li><span class="es">Implementé Lean, Agile y gestión del cambio, con formación para project managers y equipos.</span><span class="en">I implemented Lean, Agile and change management, with training for project managers and teams.</span></li>
+                <li><span class="es">Impulsé la transformación digital con Microsoft 365, una plataforma corporativa, gestión de la demanda y un marco de gestión de proyectos de producto.</span><span class="en">I drove digital transformation with Microsoft 365, a corporate platform, demand management and a product project management framework.</span></li>
+                <li><span class="es">Creé cuadros de mando de KPI para monitorizar procesos, proyectos y rendimiento.</span><span class="en">I created KPI dashboards to monitor processes, projects and performance.</span></li>
+              </ul>
+              <div class="impact-value"><b><span class="es">Valor:</span><span class="en">Value:</span></b> <span class="es">mayor visibilidad, estandarización y decisiones basadas en datos.</span><span class="en">Greater visibility, standardisation and data-driven decision-making.</span></div>
+              <a class="impact-link" href="https://cincodias.elpais.com/legal/2022/09/29/juridico/1664444346_602318.html" target="_blank" rel="noopener"><span class="es">Leer la publicación en Cinco Días ↗</span><span class="en">Read the Cinco Días article ↗</span></a>
+            </div></div>
+          </div>
+        </article>
+        <article class="impact-card" data-cat="publico">
+          <div class="impact-media"><img src="https://images.unsplash.com/photo-1523289333742-be1143f6b766?auto=format&fit=crop&w=900&q=70" alt="Public tenders"><span class="impact-label"><span class="es">Sector público</span><span class="en">Public sector</span></span></div>
+          <div class="impact-body">
+            <h3><span class="es">Sector público: licitaciones</span><span class="en">Public sector: tenders</span></h3>
+            <p class="impact-summary"><span class="es">Convierto requisitos complejos de contratación pública en propuestas sólidas, competitivas y ejecutables.</span><span class="en">I turn complex public-procurement requirements into strong, competitive and executable proposals.</span></p>
+            <button class="impact-toggle" aria-expanded="false"><span class="es">Ver cómo lo hago</span><span class="en">See how</span></button>
+            <div class="impact-detail"><div class="impact-detail-inner">
+              <ul>
+                <li><span class="es">Interpreto pliegos, requisitos técnicos y obligaciones administrativas.</span><span class="en">I interpret specifications, technical requirements and administrative obligations.</span></li>
+                <li><span class="es">Coordinó equipos técnicos, jurídicos y comerciales para estructurar propuestas competitivas.</span><span class="en">I coordinate technical, legal and commercial teams to structure competitive proposals.</span></li>
+              </ul>
+              <div class="impact-value"><b><span class="es">Valor:</span><span class="en">Value:</span></b> <span class="es">menor riesgo administrativo y mejor posicionamiento competitivo.</span><span class="en">Lower administrative risk and better competitive positioning.</span></div>
+            </div></div>
+          </div>
+        </article>
+        <article class="impact-card" data-cat="operaciones">
+          <div class="impact-media"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=70" alt="Operations and services"><span class="impact-label"><span class="es">Operaciones y servicios</span><span class="en">Operations &amp; services</span></span></div>
+          <div class="impact-body">
+            <h3><span class="es">Operaciones y servicios: eficiencia escalable</span><span class="en">Operations &amp; services: scalable efficiency</span></h3>
+            <p class="impact-summary"><span class="es">Diseño modelos operativos más eficientes y escalables en industria y servicios.</span><span class="en">I design more efficient and scalable operating models across industry and services.</span></p>
+            <button class="impact-toggle" aria-expanded="false"><span class="es">Ver cómo lo hago</span><span class="en">See how</span></button>
+            <div class="impact-detail"><div class="impact-detail-inner">
+              <ul>
+                <li><span class="es">Identifico cuellos de botella, dependencias y oportunidades de mejora.</span><span class="en">I identify bottlenecks, dependencies and improvement opportunities.</span></li>
+                <li><span class="es">Implemento indicadores, planes de acción y gestión del cambio con equipos operativos y de servicio.</span><span class="en">I implement KPIs, action plans and change management with operational and service teams.</span></li>
+              </ul>
+              <div class="impact-value"><b><span class="es">Valor:</span><span class="en">Value:</span></b> <span class="es">menos retrabajo, mayor productividad y procesos más fáciles de escalar.</span><span class="en">Less rework, higher productivity and easier-to-scale processes.</span></div>
+            </div></div>
+          </div>
+        </article>
+        <article class="impact-card" data-cat="learning">
+          <div class="impact-media"><img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=900&q=70" alt="Learning and mentoring"><span class="impact-label"><span class="es">Learning &amp; AI</span><span class="en">Learning &amp; AI</span></span></div>
+          <div class="impact-body">
+            <h3><span class="es">Learning &amp; AI: conocimiento aplicado</span><span class="en">Learning &amp; AI: applied knowledge</span></h3>
+            <p class="impact-summary"><span class="es">Convierto experiencia profesional en aprendizaje aplicable para líderes y equipos.</span><span class="en">I turn professional experience into applicable learning for leaders and teams.</span></p>
+            <button class="impact-toggle" aria-expanded="false"><span class="es">Ver cómo lo hago</span><span class="en">See how</span></button>
+            <div class="impact-detail"><div class="impact-detail-inner">
+              <ul>
+                <li><span class="es">Profesor de máster y tutor de trabajos finales en gestión de proyectos e IA.</span><span class="en">Master's lecturer and final-project mentor in project management and AI.</span></li>
+                <li><span class="es">Diseño contenidos, casos prácticos y acompañamiento para estructurar y defender proyectos.</span><span class="en">I design content, practical cases and support to structure and defend projects.</span></li>
+              </ul>
+              <div class="impact-value"><b><span class="es">Valor:</span><span class="en">Value:</span></b> <span class="es">profesionales con criterio para liderar, decidir y comunicar resultados.</span><span class="en">Professionals able to lead, decide and communicate results.</span></div>
+            </div></div>
+          </div>
+        </article>
+        <article class="impact-card" data-cat="grc learning">
+          <div class="impact-media"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=70" alt="GRC and artificial intelligence"><span class="impact-label"><span class="es">GRC &amp; AI</span><span class="en">GRC &amp; AI</span></span></div>
+          <div class="impact-body">
+            <h3><span class="es">GRC &amp; AI: gobernanza inteligente</span><span class="en">GRC &amp; AI: intelligent governance</span></h3>
+            <p class="impact-summary"><span class="es">Identifico oportunidades de IA con retorno claro, control de riesgos y adopción responsable.</span><span class="en">I identify AI opportunities with clear return, risk control and responsible adoption.</span></p>
+            <button class="impact-toggle" aria-expanded="false"><span class="es">Ver cómo lo hago</span><span class="en">See how</span></button>
+            <div class="impact-detail"><div class="impact-detail-inner">
+              <ul>
+                <li><span class="es">Priorizo casos de uso según impacto, viabilidad, riesgo y cumplimiento.</span><span class="en">I prioritise use cases by impact, feasibility, risk and compliance.</span></li>
+                <li><span class="es">Automatizo reporting y gestión documental, con criterios de control y adopción responsable.</span><span class="en">I automate reporting and document management, with control and responsible-adoption criteria.</span></li>
+              </ul>
+              <div class="impact-value"><b><span class="es">Valor:</span><span class="en">Value:</span></b> <span class="es">menos trabajo manual, mejor trazabilidad y decisiones más rápidas.</span><span class="en">Less manual work, better traceability and faster decisions.</span></div>
+            </div></div>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section>
+      <div class="section-head"><div class="eyebrow"><span class="es">Mi forma de trabajar</span><span class="en">How I work</span></div><h2><span class="es">Entender primero. Simplificar después. Ejecutar con criterio.</span><span class="en">Understand first. Simplify next. Execute with judgment.</span></h2></div>
+      <div class="approach">
+        <div class="step"><b><span class="es">01. Escuchar</span><span class="en">01. Listen</span></b><p><span class="es">Entender el contexto, los objetivos y los puntos de fricción reales.</span><span class="en">Understand the context, the goals and the real friction points.</span></p></div>
+        <div class="step"><b><span class="es">02. Diagnosticar</span><span class="en">02. Diagnose</span></b><p><span class="es">Encontrar causas, dependencias y oportunidades de mejora.</span><span class="en">Find causes, dependencies and improvement opportunities.</span></p></div>
+        <div class="step"><b><span class="es">03. Diseñar</span><span class="en">03. Design</span></b><p><span class="es">Definir una solución proporcionada, con responsables y métricas.</span><span class="en">Define a proportionate solution, with owners and metrics.</span></p></div>
+        <div class="step"><b><span class="es">04. Activar</span><span class="en">04. Activate</span></b><p><span class="es">Acompañar la ejecución y convertir aprendizajes en un sistema repetible.</span><span class="en">Support execution and turn lessons into a repeatable system.</span></p></div>
+      </div>
+    </section>
+    <section id="experiencia">
+      <div class="profile">
+        <div><div class="profile-tag"><span class="es">Perfil profesional</span><span class="en">Professional profile</span></div><h2 style="margin-top:15px"><span class="es">Visión transversal. Mentalidad de ejecución.</span><span class="en">Cross-functional vision. Execution mindset.</span></h2></div>
+        <div>
+          <p><span class="es">Soy ingeniero, profesor de máster y PMP®, con más de 15 años de experiencia en entornos tecnológicos, industriales y de servicios, siempre con foco en el cliente y en los resultados. Actualmente soy Head of Onboarding &amp; Project Delivery — Customer Experience, liderando profesionales entre Iberia y Latinoamérica.</span><span class="en">I'm an engineer, master's-level lecturer and PMP®, with more than 15 years of experience in technology, industrial and services environments, always focused on the customer and on results. I currently serve as Head of Onboarding &amp; Project Delivery — Customer Experience, leading professionals across Iberia and Latin America.</span></p>
+          <p><span class="es">Mi punto fuerte es conectar estrategia y operación: comprender necesidades distintas, traducir entre perfiles técnicos y de negocio, estructurar problemas y llevar iniciativas complejas a resultados concretos. Trabajo especialmente bien en los espacios donde se cruzan personas, procesos, servicios y tecnología, ayudando a que abogados, ingenieros, equipos directivos y managers compartan una misma comprensión del reto y de cómo resolverlo.</span><span class="en">My strength is connecting strategy and operations: understanding different needs, translating between technical and business profiles, structuring problems and taking complex initiatives to concrete results. I work especially well where people, processes, services and technology intersect, helping lawyers, engineers, leadership teams and managers share the same understanding of the challenge and how to solve it.</span></p>
+          <div class="chips"><span class="chip">Project &amp; Delivery Leadership</span><span class="chip">Customer Experience</span><span class="chip"><span class="es">Procesos y operaciones</span><span class="en">Processes &amp; operations</span></span><span class="chip"><span class="es">Transformación digital</span><span class="en">Digital transformation</span></span><span class="chip">PMP®</span><span class="chip"><span class="es">Docencia de gestión de proyectos</span><span class="en">Project management teaching</span></span></div>
+        </div>
+      </div>
+    </section>
+    <section id="contacto" style="border:0;padding-bottom:85px">
+      <div class="cta">
+        <div><div class="eyebrow" style="color:#3f5924"><span class="es">Siguiente paso</span><span class="en">Next step</span></div><h2 style="margin-top:15px"><span class="es">¿Hay un problema que merece una conversación?</span><span class="en">Is there a problem worth a conversation?</span></h2><p><span class="es">Si diriges una empresa, lideras un equipo, trabajas en servicios profesionales o impulsas una escuela de negocio, podemos conversar sobre cómo aclarar un reto, conectar áreas, mejorar la experiencia del cliente o convertir una iniciativa en resultados.</span><span class="en">If you run a company, lead a team, work in professional services or run a business school, we can talk about how to clarify a challenge, connect areas, improve the customer experience or turn an initiative into results.</span></p></div>
+        <div>
+          <div class="cta-btns">
+            <a class="btn primary es" href="mailto:francoafrias@gmail.com?subject=Conversaci%C3%B3n%20sobre%20una%20posible%20colaboraci%C3%B3n">Escríbeme ↗</a><a class="btn primary en" href="mailto:francoafrias@gmail.com?subject=Conversation%20about%20a%20potential%20collaboration">Write to me ↗</a>
+            <a class="btn secondary" href="https://www.linkedin.com/in/franco-frias-process-project-manager-engineer-ingeniero-industrial" target="_blank" rel="noopener">LinkedIn ↗</a>
+          </div>
+          <p class="mail-line"><a id="addr" href="mailto:francoafrias@gmail.com">francoafrias@gmail.com</a></p>
+          <p class="mail-line">
+            <a class="es" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=francoafrias%40gmail.com&amp;su=Conversaci%C3%B3n%20sobre%20una%20posible%20colaboraci%C3%B3n" target="_blank" rel="noopener">Abrir en Gmail</a><a class="en" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=francoafrias%40gmail.com&amp;su=Conversation%20about%20a%20potential%20collaboration" target="_blank" rel="noopener">Open in Gmail</a>
+            <span class="sep">·</span>
+            <button type="button" class="copy" id="copybtn"><span class="es">Copiar correo</span><span class="en">Copy email</span></button><span id="copied" aria-live="polite"></span>
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+<footer class="wrap"><span><span class="es">© Franco Frías · Perfil profesional</span><span class="en">© Franco Frías · Professional profile</span></span><span>Iberia &amp; LATAM</span></footer>
+
+<script>
+(function(){
+  var es = document.getElementById("l-es"), en = document.getElementById("l-en");
+  var meta = document.querySelector('meta[name="description"]');
+  var TT = {es:"Franco Frías | Estrategia, ejecución y transformación", en:"Franco Frías | Strategy, execution and transformation"};
+  var DD = {es:"Franco Frías — liderazgo de proyectos, experiencia de cliente y transformación de negocio.", en:"Franco Frías — project leadership, customer experience and business transformation."};
+  function apply(l){
+    document.documentElement.lang = l;
+    document.title = TT[l];
+    if(meta) meta.setAttribute("content", DD[l]);
+    try{ localStorage.setItem("ff_lang", l); }catch(e){}
+  }
+  if(es && en){
+    es.addEventListener("change", function(){ if(es.checked) apply("es"); });
+    en.addEventListener("change", function(){ if(en.checked) apply("en"); });
+    var start = "";
+    try{
+      var q = new URLSearchParams(location.search).get("lang");
+      start = (q === "en" || q === "es") ? q : (localStorage.getItem("ff_lang") || "");
+    }catch(e){}
+    if(start === "en"){ en.checked = true; apply("en"); }
+  }
+  var cb = document.getElementById("copybtn"), ok = document.getElementById("copied"), addr = document.getElementById("addr");
+  if(cb && addr){
+    cb.addEventListener("click", function(){
+      var txt = addr.textContent, done = false;
+      function good(){ if(ok){ ok.textContent = " ✓"; setTimeout(function(){ ok.textContent = ""; }, 2500); } }
+      try{
+        if(navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(txt).then(good, fallback); return;
+        }
+      }catch(e){}
+      fallback();
+      function fallback(){
+        try{
+          var r = document.createRange(); r.selectNodeContents(addr);
+          var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+          done = document.execCommand("copy");
+        }catch(e){}
+        if(done) good();
+      }
+    });
+  }
+})();
+</script>
+
+<script>
+(function(){
+  const filters=document.querySelectorAll('.impact-filter');
+  const cards=document.querySelectorAll('.impact-card');
+  filters.forEach(btn=>btn.addEventListener('click',()=>{
+    filters.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f=btn.dataset.filter;
+    cards.forEach(card=>{
+      card.classList.toggle('hidden', f!=='all' && !card.dataset.cat.split(' ').includes(f));
+    });
+  }));
+  document.querySelectorAll('.impact-toggle').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const card=btn.closest('.impact-card');
+      const open=card.classList.toggle('open');
+      btn.setAttribute('aria-expanded',open);
+      btn.querySelector('.es').textContent=open?'Ocultar detalle':'Ver cómo lo hago';
+      btn.querySelector('.en').textContent=open?'Hide details':'See how';
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
